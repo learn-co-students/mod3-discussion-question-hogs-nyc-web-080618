@@ -32,19 +32,35 @@ function delayedFadeOut(div, range) {
 
 function delayedFadeIn(div, range) {
   // Your solution here
-  fadeIn(div)
+  setTimeout( () => {
+    fadeIn(div)
+  }, range)
 }
 
 function fadeAllOut(el, group) {
   // Your solution here
+  let fadeOutTimer = 100;
   group.forEach(div => {
-    delayedFadeOut(div)
-  })
+    if(div === el){
+      setTimeout( () => {
+        delayedFadeOut(div);
+      }, 500);
+    } else {
+      setTimeout( () => {
+        fadeOutTimer += 100;
+        delayedFadeOut(div);
+      }, fadeOutTimer);
+    }
+  });
 }
 
 function fadeAllIn(group) {
   // Your solution here
+  let fadeInTimer = 500;
   group.forEach(div => {
-    delayedFadeIn(div)
+    setTimeout( () => {
+      fadeInTimer += 100;
+      delayedFadeIn(div, fadeInTimer)
+    }, FADEDURATION);
   })
 }
