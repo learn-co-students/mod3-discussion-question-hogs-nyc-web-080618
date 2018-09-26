@@ -14,6 +14,11 @@ function fadeIn(el) {
     el.style.opacity = 1
     el.classList.remove("fade-down-in")
     el.style.pointerEvents = "auto"
+
+
+
+
+    
   }, FADEDURATION)
 }
 
